@@ -14,6 +14,8 @@ namespace SalesMVC
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddScoped<SeedingService>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -23,6 +25,15 @@ namespace SalesMVC
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            else
+            {
+                using (var scope = app.Services.CreateScope())
+                {
+                    var services = scope.ServiceProvider;
+                    services.GetService<SeedingService>().Seed();
+                }
+            }
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
