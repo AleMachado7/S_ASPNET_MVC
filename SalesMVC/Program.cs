@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesMVC.Data;
+using SalesMVC.Services.Sellers;
+
 namespace SalesMVC
 {
     public class Program
@@ -15,6 +17,7 @@ namespace SalesMVC
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddScoped<SeedingService>();
+            builder.Services.AddScoped<ISellerService, SellerService>();
 
             var app = builder.Build();
 
