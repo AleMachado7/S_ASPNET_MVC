@@ -13,19 +13,19 @@ namespace SalesMVC.Models
         public string Email { get; set; }
         public DateTime BirthDate { get; set; }
         public double Salary { get; set; }
-        public Department Department { get; set; }
+        public Guid DepartmentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
         public Seller() { }
 
-        public Seller(Guid id, string name, string email, DateTime birthDate, double salary, Department department)
+        public Seller(Guid id, string name, string email, DateTime birthDate, double salary, Guid departmentId)
         {
             Id = id;
             Name = name;
             Email = email;
             BirthDate = birthDate;
             Salary = salary;
-            Department = department;
+            DepartmentId = departmentId;
         }
 
         public void AddSale(SalesRecord sale)

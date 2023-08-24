@@ -25,11 +25,11 @@ namespace SalesMVC.Data
             Department d4 = new Department(Guid.NewGuid(), "Beauty");
             Department d5 = new Department(Guid.NewGuid(), "Accessories");
 
-            Seller s1 = new Seller(Guid.NewGuid(), "John Doe", "johndoe@gmail.com", new DateTime(1994, 7, 13), 2000.00, d1);
-            Seller s2 = new Seller(Guid.NewGuid(), "Jane Smith", "janesmith@gmail.com", new DateTime(1990, 5, 25), 1800.00, d2);
-            Seller s3 = new Seller(Guid.NewGuid(), "Michael Johnson", "michaeljohnson@gmail.com", new DateTime(1988, 9, 8), 2200.00, d3);
-            Seller s4 = new Seller(Guid.NewGuid(), "Emily Brown", "emilybrown@gmail.com", new DateTime(1992, 11, 18), 1900.00, d4);
-            Seller s5 = new Seller(Guid.NewGuid(), "David Wilson", "davidwilson@gmail.com", new DateTime(1996, 3, 4), 2100.00, d5);
+            Seller s1 = new Seller(Guid.NewGuid(), "John Doe", "johndoe@gmail.com", new DateTime(1994, 7, 13), 2000.00, d1.Id);
+            Seller s2 = new Seller(Guid.NewGuid(), "Jane Smith", "janesmith@gmail.com", new DateTime(1990, 5, 25), 1800.00, d2.Id);
+            Seller s3 = new Seller(Guid.NewGuid(), "Michael Johnson", "michaeljohnson@gmail.com", new DateTime(1988, 9, 8), 2200.00, d3.Id);
+            Seller s4 = new Seller(Guid.NewGuid(), "Emily Brown", "emilybrown@gmail.com", new DateTime(1992, 11, 18), 1900.00, d4.Id);
+            Seller s5 = new Seller(Guid.NewGuid(), "David Wilson", "davidwilson@gmail.com", new DateTime(1996, 3, 4), 2100.00, d5.Id);
 
             SalesRecord sr1 = new SalesRecord(Guid.NewGuid(), new DateTime(2019, 09, 25), 13000.00, SaleStatus.Billed, s1);
             SalesRecord sr2 = new SalesRecord(Guid.NewGuid(), new DateTime(2020, 02, 07), 9000.00, SaleStatus.Pending, s3);
