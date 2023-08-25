@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SalesMVC.Data;
 
@@ -11,9 +12,10 @@ using SalesMVC.Data;
 namespace SalesMVC.Migrations
 {
     [DbContext(typeof(SalesMVCContext))]
-    partial class SalesMVCContextModelSnapshot : ModelSnapshot
+    [Migration("20230825004007_AddDepartmentEntityToSeller")]
+    partial class AddDepartmentEntityToSeller
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
