@@ -8,5 +8,6 @@ namespace SalesMVC.Services.Sellers
         List<Seller> FindAll();
         void Insert(Seller seller);
         void Delete(Guid id);
+        void Update(Seller seller);
     }
 }
