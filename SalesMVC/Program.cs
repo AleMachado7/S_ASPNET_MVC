@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesMVC.Data;
+using SalesMVC.Services.Departments;
 using SalesMVC.Services.Sellers;
 
 namespace SalesMVC
@@ -18,6 +19,7 @@ namespace SalesMVC
 
             builder.Services.AddScoped<SeedingService>();
             builder.Services.AddScoped<ISellerService, SellerService>();
+            builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 
             var app = builder.Build();
 
