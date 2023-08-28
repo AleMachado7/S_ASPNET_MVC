@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesMVC.Data;
 using SalesMVC.Services.Departments;
 using SalesMVC.Services.Sellers;
+using System.Globalization;
 
 namespace SalesMVC
 {
@@ -39,12 +41,18 @@ namespace SalesMVC
                 }
             }
 
+            // Change app Culture Info
+            var cultureInfo = new CultureInfo("en-US");
+            var localization = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(cultureInfo),
+                SupportedCultures = new List<CultureInfo> { cultureInfo },
+                SupportedUICultures = new List<CultureInfo> { cultureInfo }
+            };
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.MapControllerRoute(

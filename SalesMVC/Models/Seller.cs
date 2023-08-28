@@ -10,10 +10,18 @@ namespace SalesMVC.Models
         public string Name { get; set; }
 
         [MaxLength(255)]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        [Display(Name = "Birth Date")]
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:F2}")]
         public double Salary { get; set; }
         public Department Department { get; set; }
+
+        [Display(Name = "Department Name")]
         public Guid DepartmentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
