@@ -4,10 +4,10 @@ namespace SalesMVC.Services.Sellers
 {
     public interface ISellerService
     {
-        Seller FindById(Guid id);
-        List<Seller> FindAll();
-        void Insert(Seller seller);
-        void Delete(Guid id);
-        void Update(Seller seller);
+        Task<Seller> FindByIdAsync(Guid id);
+        Task<List<Seller>> FindAllAsync();
+        Task InsertAsync(Seller seller);
+        Task DeleteAsync(Guid id);
+        Task UpdateAsync(Seller seller);
     }
 }
