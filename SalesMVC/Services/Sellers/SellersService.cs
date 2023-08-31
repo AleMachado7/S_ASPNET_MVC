@@ -31,9 +31,16 @@ namespace SalesMVC.Services.Sellers
 
         public async Task DeleteAsync(Guid id)
         {
-            var seller = await _context.Seller.FindAsync(id);
-            _context.Seller.Remove(seller);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var seller = await _context.Seller.FindAsync(id);
+                _context.Seller.Remove(seller);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new IntegrityException("Can't delete a Seller that has sales");
+            }
         }
 
         public async Task UpdateAsync(Seller seller)
